@@ -1,0 +1,11 @@
+.container1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: #00BFFF;
+    text-align: center;
+    border-bottom:  2px solid orange ;
+}
+.footer{
+  background-color: orange;
+  text-align: center;
+}

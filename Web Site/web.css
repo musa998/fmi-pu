@@ -1,0 +1,197 @@
+
+body{
+  background-color:#ECF0F1;
+
+}
+#blog-section , header , #carouselExampleIndicators{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+ul li {
+  margin-left: 100px;
+}
+nav{
+  border-bottom: 2px solid blue;
+}
+li:hover{
+  color: black;
+}
+.logo{
+  width:  28%;
+}
+#showcase{
+  width: 100%;
+  padding: 100px;
+  min-width: 400px;
+  background: url('./img/bac.jpg') no-repeat;
+  text-align: center;
+  background-size: cover;
+  margin-bottom: 8px;
+}
+/* Ogolemqva i oformq Showcasa */
+#showcase h1 {
+margin-top: 100px;
+font-size: 55px;
+margin-bottom: 20px;
+color: 	#FF1493;
+font-family: Indie Flower;
+}
+.containera{
+  margin-bottom: 50px;
+}
+.containera h1{
+  color: #00BFFF;
+  text-align: center;
+  border-bottom:  2px solid orange ;
+}
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 100%;
+}
+
+.content-title h3 a:hover{color:#F39C12;
+}
+/*.footer{
+  padding: 20px;
+  margin: 80px 60px  60px;
+  background-color: #111;
+  text-align: center;
+  color: #ffff;
+}
+*/
+@media screen and (max-width: 733px) {
+
+  .logo  {
+   display: flex;
+   justify-content: center;
+ }
+ nav ul{
+   margin-top: 50px;
+   float: none;
+ }
+ nav input{
+margin-left: 16px;
+ }
+ nav li {
+   display: inline;
+ }
+ nav  a  {
+
+   width: 100%;
+   display: block;
+
+ }
+}
+@media screen and (max-width: 594px) {
+ .logo  {
+  width: 100%;
+}
+
+@media screen and (min-width: 735px) {
+ li .hov {
+  min-width: 100%;
+  padding-right: 100%;
+
+}
+ul a a:not(:first-child) {
+  display: none;
+}
+
+
+}
+nav ul{
+  margin-top: 50px;
+  float: none;
+}
+nav input{
+  margin-top: 100px;
+}
+nav li {
+  display: inline;
+}
+nav  a  {
+  margin-top: 50px;
+  width: 100%;
+  display: block;
+
+}
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background-color: #111;
+  text-align: center;
+}
+
+
+.container{
+  margin-top: 50px;
+  color: #fff;
+  width: 100%;
+}
+
+.fa-twitter {
+    color: #4099FF;
+}
+
+.fa-facebook {
+    color: #3B5998;
+}
+
+.fa-youtube-play {
+    color: #e52d27;
+}
+
+.fa-rss {
+    color: #FF6600;
+}
+
+.fa-vine {
+    color: #00a478;
+}
+
+.fa-flickr {
+    color: #ff0084;
+}
+
+.fa-twitch {
+    color: #6441A5;
+}
+
+.fa-linkedin {
+    color: #007bb6;
+}
+
+.fa {
+    opacity: 0.7;
+    transition: 1s;
+    -webkit-transition: 1s;
+}
+
+.fa:hover{
+    opacity: 1;
+    transition: 1s;
+    -webkit-transition: 1s;
+
+.copyright{
+    background-color:#ECF0F1;
+}
+
+.copyright p{
+	font-size:12px;
+	padding:15px 0 10px 0;
+}

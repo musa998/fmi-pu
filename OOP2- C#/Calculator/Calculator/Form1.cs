@@ -23,6 +23,7 @@ namespace Calculator
         double percentage = 0.01;
         double fOperand;
         double memoryStore;
+        bool checkForEndResult= false;
 
        
 
@@ -48,140 +49,215 @@ namespace Calculator
 
         private void button6_Click_1(object sender, EventArgs e)
         {
+           
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
+                textBox2.Text += "7";
                 textBox1.Text = "7";
                 textBox1.ForeColor = Color.White;
             }
             else
             {
+                textBox2.Text = textBox2.Text + "7";
                 textBox1.Text = textBox1.Text + "7";
                 textBox1.ForeColor = Color.White;
             }
+            
         }
         private void button15_Click_1(object sender, EventArgs e)
         {
+
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
                 textBox1.Text = "8";
+                textBox2.Text = "8";
                 textBox1.ForeColor = Color.White;
             }
             else
             {
                 textBox1.Text = textBox1.Text + "8";
+                textBox2.Text = textBox2.Text + "8";
                 textBox1.ForeColor = Color.White;
             }
         }
 
         private void button12_Click(object sender, EventArgs e)
         {
+            
+
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
+                textBox2.Text += "9";
                 textBox1.Text = "9";
                 textBox1.ForeColor = Color.White;
             }
             else
             {
                 textBox1.Text = textBox1.Text + "9";
+                textBox2.Text = textBox2.Text + "9";
                 textBox1.ForeColor = Color.White;
             }
         }
 
         private void button19_Click(object sender, EventArgs e)
         {
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
+                textBox2.Text = "4";
                 textBox1.Text = "4";
                 textBox1.ForeColor = Color.White;
             }
             else
             {
                 textBox1.Text = textBox1.Text + "4";
+                textBox2.Text = textBox2.Text + "4";
                 textBox1.ForeColor = Color.White;
             }
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
                 textBox1.Text = "5";
+                textBox2.Text = "5";
                 textBox1.ForeColor = Color.White;
             }
             else
             {
                 textBox1.Text = textBox1.Text + "5";
+                textBox2.Text = textBox2.Text + "5";
                 textBox1.ForeColor = Color.White;
             }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
                 textBox1.Text = "6";
+                textBox2.Text = "6";
                 textBox1.ForeColor = Color.White;
             }
             else
             {
                 textBox1.Text = textBox1.Text + "6";
+                textBox2.Text = textBox2.Text + "6";
                 textBox1.ForeColor = Color.White;
             }
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
                 textBox1.Text = "1";
+                textBox2.Text = "1";
                 textBox1.ForeColor = Color.White;
             }
             else
             {
                 textBox1.Text = textBox1.Text + "1";
+                textBox2.Text = textBox2.Text + "1";
                 textBox1.ForeColor = Color.White;
             }
         }
 
         private void button17_Click(object sender, EventArgs e)
         {
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
                 textBox1.Text = "2";
+                textBox2.Text = "2";
                 textBox1.ForeColor = Color.White;
             }
             else
             {
                 textBox1.Text = textBox1.Text + "2";
+                textBox2.Text = textBox2.Text + "2";
                 textBox1.ForeColor = Color.White;
             }
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
                 textBox1.Text = "3";
+                textBox2.Text = "3";
                 textBox1.ForeColor = Color.White;
             }
             else
             {
                 textBox1.Text = textBox1.Text + "3";
+                textBox2.Text = textBox2.Text + "3";
                 textBox1.ForeColor = Color.White;
             }
         }
 
         private void button11_Click(object sender, EventArgs e)
         {
+            if (checkForEndResult)
+            {
+                textBox1.Clear();
+            }
+            checkForEndResult = false;
             if (textBox1.Text == "0" && textBox1.Text != null)
             {
                 textBox1.Text = "0";
+                textBox2.Text = "0";
                 textBox1.ForeColor = Color.White;
                
             }
             else
             {
                 textBox1.Text = textBox1.Text + "0";
+                textBox2.Text = textBox2.Text + "0";
                 textBox1.ForeColor = Color.White;
                
             }
@@ -192,6 +268,8 @@ namespace Calculator
             fOperand = num;
             textBox1.Clear();
             count = 1;
+
+            textBox2.Text += " + ";
           
             if (label2.Text != "         ")
             {
@@ -233,6 +311,7 @@ namespace Calculator
             fOperand = num;
             textBox1.Clear();
             count = 2;
+            textBox2.Text += " - ";
             if (label2.Text != "         ")
             {
                 fOperand = double.Parse(label2.Text.Substring(0, label2.Text.Length - 1));
@@ -268,41 +347,48 @@ namespace Calculator
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            num = double.Parse(textBox1.Text);
-            fOperand = num;
-            textBox1.Clear();
-            count = 3;
-            if (label2.Text != "         ")
+            decimal number;
+            bool isNum = decimal.TryParse(textBox1.Text,out number);
+
+            textBox2.Text += " x ";
+            if (isNum)
             {
-                 fOperand = double.Parse(label2.Text.Substring(0, label2.Text.Length - 1));
-                char operation = label2.Text[label2.Text.Length - 1];
-                switch (operation)
+                num = double.Parse(textBox1.Text);
+                fOperand = num;
+                textBox1.Clear();
+                count = 3;
+                if (label2.Text != "         ")
                 {
-                    case '+':
-                        fOperand += num;
-                        label2.Text = fOperand.ToString() + "x";
-                        break;
-                    case '-':
-                        fOperand -= num;
-                        label2.Text = fOperand.ToString() + "x";
-                        break;
-                    case 'x':
-                        fOperand *= num;
-                        label2.Text = fOperand.ToString() + "x";
-                        break;
-                    case '÷':
-                        fOperand /= num;
-                        label2.Text = fOperand.ToString() + "x";
-                        break;
-                    case '%':
-                        fOperand %= num;
-                        label2.Text = fOperand.ToString() + "x";
-                        break;
+                    fOperand = double.Parse(label2.Text.Substring(0, label2.Text.Length - 1));
+                    char operation = label2.Text[label2.Text.Length - 1];
+                    switch (operation)
+                    {
+                        case '+':
+                            fOperand += num;
+                            label2.Text = fOperand.ToString() + "x";
+                            break;
+                        case '-':
+                            fOperand -= num;
+                            label2.Text = fOperand.ToString() + "x";
+                            break;
+                        case 'x':
+                            fOperand *= num;
+                            label2.Text = fOperand.ToString() + "x";
+                            break;
+                        case '÷':
+                            fOperand /= num;
+                            label2.Text = fOperand.ToString() + "x";
+                            break;
+                        case '%':
+                            fOperand %= num;
+                            label2.Text = fOperand.ToString() + "x";
+                            break;
+                    }
                 }
-            }
-            else
-            {
-                label2.Text = num.ToString() + "x";
+                else
+                {
+                    label2.Text = num.ToString() + "x";
+                }
             }
         }
 
@@ -311,6 +397,7 @@ namespace Calculator
             num = double.Parse(textBox1.Text);
             textBox1.Clear();
             count = 4;
+            textBox2.Text += " ÷ ";
             if (label2.Text != "         ")
             {
                fOperand = double.Parse(label2.Text.Substring(0, label2.Text.Length - 1));
@@ -351,6 +438,7 @@ namespace Calculator
             fOperand = num;
             textBox1.Clear();
             count = 5;
+            textBox2.Text += " % ";
             if (label2.Text != "         ")
             {
                  fOperand = double.Parse(label2.Text.Substring(0, label2.Text.Length - 1));
@@ -460,6 +548,7 @@ namespace Calculator
         {
             calculate();
             label2.Text = "         ";
+            checkForEndResult = true;
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -486,6 +575,7 @@ namespace Calculator
 
         private void button28_Click(object sender, EventArgs e)
         {
+            checkForEndResult = true;
             if (textBox1.Text == "0" || textBox1.Text != null)
             {
                 memoryStore = double.Parse(textBox1.Text);
@@ -516,6 +606,7 @@ namespace Calculator
 
         private void button25_Click(object sender, EventArgs e)
         {
+            textBox2.Text = " ";
             textBox1.Text = " ";
             label2.Text = "         ";
             op = ' ';

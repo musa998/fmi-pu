@@ -1,0 +1,7 @@
+D:\GitHub\Product_Inventory\Product_Inventory\bin\Debug\Product_Inventory.exe.config
+D:\GitHub\Product_Inventory\Product_Inventory\bin\Debug\Product_Inventory.exe
+D:\GitHub\Product_Inventory\Product_Inventory\bin\Debug\Product_Inventory.pdb
+D:\GitHub\Product_Inventory\Product_Inventory\obj\Debug\Product_Inventory.csprojResolveAssemblyReference.cache
+D:\GitHub\Product_Inventory\Product_Inventory\obj\Debug\Product_Inventory.csproj.CoreCompileInputs.cache
+D:\GitHub\Product_Inventory\Product_Inventory\obj\Debug\Product_Inventory.exe
+D:\GitHub\Product_Inventory\Product_Inventory\obj\Debug\Product_Inventory.pdb

@@ -1,0 +1,7 @@
+c:\users\#probook#\source\repos\Game\Game\bin\Debug\Game.exe.config
+c:\users\#probook#\source\repos\Game\Game\bin\Debug\Game.exe
+c:\users\#probook#\source\repos\Game\Game\bin\Debug\Game.pdb
+c:\users\#probook#\source\repos\Game\Game\obj\Debug\Game.csprojResolveAssemblyReference.cache
+c:\users\#probook#\source\repos\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+c:\users\#probook#\source\repos\Game\Game\obj\Debug\Game.exe
+c:\users\#probook#\source\repos\Game\Game\obj\Debug\Game.pdb

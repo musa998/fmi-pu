@@ -1,0 +1,7 @@
+D:\My projects\ExamProject\ExamProject\bin\Debug\ExamProject.exe.config
+D:\My projects\ExamProject\ExamProject\bin\Debug\ExamProject.exe
+D:\My projects\ExamProject\ExamProject\bin\Debug\ExamProject.pdb
+D:\My projects\ExamProject\ExamProject\obj\Debug\ExamProject.csproj.CoreCompileInputs.cache
+D:\My projects\ExamProject\ExamProject\obj\Debug\ExamProject.exe
+D:\My projects\ExamProject\ExamProject\obj\Debug\ExamProject.pdb
+D:\My projects\ExamProject\ExamProject\obj\Debug\ExamProject.csprojResolveAssemblyReference.cache

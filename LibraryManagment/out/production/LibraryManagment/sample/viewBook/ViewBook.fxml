@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="419.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.viewBook.ViewBookController">
+   <children>
+      <TextField fx:id="title" layoutX="141.0" layoutY="26.0" prefHeight="31.0" prefWidth="158.0" promptText="Book Title" />
+      <Button fx:id="btnSearchBook" layoutX="344.0" layoutY="26.0" mnemonicParsing="false" onAction="#searchBook" prefHeight="25.0" prefWidth="128.0" text="Search" />
+      <TableView fx:id="tableView" layoutX="-1.0" layoutY="150.0" prefHeight="268.0" prefWidth="622.0">
+        <columns>
+          <TableColumn fx:id="colTitle" prefWidth="228.0" text="Title" />
+          <TableColumn fx:id="colIsbn" prefWidth="197.0" text="ISBN" />
+            <TableColumn fx:id="colYear" prefWidth="196.0" text="Year" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="548.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addBook.AddBookController">
+    <children>
+        <Pane layoutX="6.0" layoutY="5.0" prefHeight="515.0" prefWidth="644.0">
+            <children>
+                <Pane layoutX="-6.0" layoutY="222.0" prefHeight="294.000022070315" prefWidth="650.0" styleClass="cssAuthorPane">
+                    <children>
+                        <Label layoutX="51.0" layoutY="-2.0" styleClass="cssLblHeader" text="Author Details" />
+                  <TextArea fx:id="txtAboutAuthor" layoutX="166.0" layoutY="93.0" prefHeight="54.0" prefWidth="395.5078125" styleClass="cssTf" />
+                  <Label layoutX="61.0" layoutY="106.0" styleClass="cssLbl" text="About Author" />
+                        <Button fx:id="btnAddAuthor" layoutX="286.0" layoutY="189.0" minHeight="16.0001220703125" mnemonicParsing="false" onAction="#addAuthor" prefHeight="23.0001220703125" prefWidth="112.0" styleClass="cssBtn" text="Add Author" />
+                    </children>
+                </Pane>
+                <Pane layoutX="-6.0" layoutY="42.0" prefHeight="179.0" prefWidth="650.0" styleClass="cssBookPane">
+                    <children>
+                        <Label layoutX="335.0" layoutY="40.0" styleClass="cssLbl" text="ISBN :" />
+                        <TextField fx:id="txtISBN" layoutX="438.0" layoutY="32.0" prefHeight="31.0" prefWidth="129.00002207031503" promptText="ISBN" styleClass="null" />
+                        <Label layoutX="53.0" layoutY="76.0" prefWidth="103.99990844726562" styleClass="cssLbl" text="Year" />
+                        <TextField fx:id="txtPublishYear" layoutX="174.0" layoutY="72.0" prefHeight="31.0" prefWidth="144.0" promptText="Publish Year" />
+                        <Label layoutX="335.0" layoutY="76.0" styleClass="cssLbl" text="Average rating" />
+                        <TextField fx:id="txtRating" layoutX="438.0" layoutY="70.0" prefHeight="31.0" prefWidth="129.0" promptText="Rating" />
+                        <Label layoutX="53.0" layoutY="0.0" styleClass="cssLblHeader" text="Book Details" />
+                    </children>
+                </Pane>
+                <Label layoutX="47.0" layoutY="80.0" styleClass="cssLbl" text="Book Title :" />
+                <TextField fx:id="txtTitle" layoutX="168.0" layoutY="73.0" prefHeight="31.0" prefWidth="142.5078125" promptText="Book Title" styleClass="null" />
+                <Label layoutX="47.0" layoutY="163.0" styleClass="cssLbl" text="Genre :" />
+                <TextArea fx:id="txtGenre" layoutX="168.0" layoutY="152.0" prefHeight="31.0" prefWidth="144.0" styleClass="cssTf" />
+                <Button fx:id="lblSubmit" layoutX="489.0" layoutY="439.0" mnemonicParsing="false" onAction="#addBook" prefHeight="31.000099999997474" prefWidth="76.0" styleClass="cssBtn" text="Submit" />
+                <Label fx:id="lblMessage" layoutX="225.0" layoutY="271.0" />
+                <TextField fx:id="authorName" layoutX="159.0" layoutY="254.0" prefHeight="31.0" prefWidth="396.0" promptText="Author Name" />
+                <Label layoutX="46.0" layoutY="262.0" styleClass="cssLbl" text="Author name" />
+                <Label fx:id="lblAuthors" layoutX="50.0" layoutY="429.0" prefHeight="63.0" prefWidth="173.0" />
+                <Pane layoutX="-3.0" layoutY="-3.0" prefHeight="42.0" prefWidth="650.0" styleClass="cssAdminHeader">
+                    <children>
+                        <Label layoutX="247.0" layoutY="6.0" styleClass="cssLblAdminHeader" text="Book Management" />
+                    </children>
+                </Pane>
+            </children>
+        </Pane>
+
+    </children>
+</Pane>

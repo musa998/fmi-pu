@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.updateBook.UpdateBookController">
+   <children>
+      <TextField fx:id="txtSearchTitle" layoutX="260.0" layoutY="68.0" prefHeight="31.0" prefWidth="158.0" promptText="Book Title" />
+      <Label layoutX="194.0" layoutY="14.0" text="Update Book">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="70.0" layoutY="73.0" text="Enter book to update">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Pane layoutX="6.0" layoutY="121.0" prefHeight="271.0" prefWidth="590.0" styleClass="cssBookPane">
+         <children>
+            <Label layoutX="335.0" layoutY="40.0" styleClass="cssLbl" text="ISBN :" />
+            <TextField fx:id="txtISBN" layoutX="438.0" layoutY="32.0" prefHeight="31.0" prefWidth="129.00002207031503" promptText="ISBN" styleClass="null" />
+            <Label layoutX="53.0" layoutY="76.0" prefWidth="103.99990844726562" styleClass="cssLbl" text="Year" />
+            <TextField fx:id="txtPublishYear" layoutX="143.0" layoutY="69.0" prefHeight="31.0" prefWidth="144.0" promptText="Publish Year" />
+            <Label layoutX="335.0" layoutY="76.0" styleClass="cssLbl" text="Average rating" />
+            <TextField fx:id="txtRating" layoutX="438.0" layoutY="70.0" prefHeight="31.0" prefWidth="129.0" promptText="Rating" />
+            <Label layoutX="53.0" layoutY="0.0" styleClass="cssLblHeader" text="Book Details" />
+            <TextField fx:id="txtITitle" layoutX="143.0" layoutY="33.0" prefHeight="31.0" prefWidth="144.0" promptText="Book Title" styleClass="null" />
+            <Label layoutX="53.0" layoutY="39.0" styleClass="cssLbl" text="Book Title" />
+            <TextField fx:id="txtAuthorName" layoutX="264.0" layoutY="147.0" prefHeight="31.0" prefWidth="312.0" promptText="Author Name" />
+            <Label layoutX="157.0" layoutY="152.0" styleClass="cssLbl" text="Author name" />
+            <Button fx:id="lblUpdate" layoutX="440.0" layoutY="208.0" mnemonicParsing="false" onAction="#editBook" prefHeight="31.000099999997474" prefWidth="76.0" styleClass="cssBtn" text="Update" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

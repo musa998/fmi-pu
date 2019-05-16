@@ -38,8 +38,8 @@ public class ViewBookController implements Initializable {
                 String title = rs.getString("title");
                 int year = rs.getInt("year");
                 int isbn = rs.getInt("isbn");
-                double avgRating = rs.getDouble("avg_rating");
-                Book book = new Book(title, year, isbn, avgRating);
+//                double avgRating = rs.getDouble("avg_rating");
+                Book book = new Book(title, year, isbn);
                // ObservableList<Book> books = FXCollections.observableArrayList();
                 tableView.getItems().add(book);
 

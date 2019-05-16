@@ -26,7 +26,7 @@ public class UpdateBookController {
     public void editBook(ActionEvent actionEvent) {
         ResultSet rs;
         String cquery = "SELECT * FROM BOOKS WHERE TITLE = '" + txtSearchTitle.getText() + "'";
-        String updateQuery = "UPDATE Books SET title = ?, year = ?, isbn = ?, avg_rating = ? WHERE title" +
+        String updateQuery = "UPDATE Books SET title = ?, year = ?, isbn = ? WHERE title" +
                 " = '" + txtSearchTitle.getText() + "'";
         PreparedStatement statement = null;
         Connection connection = getConnection();
@@ -49,7 +49,7 @@ public class UpdateBookController {
                      title = rs.getString("title");
                      year = rs.getInt("year");
                      isbn = rs.getInt("isbn");
-                     avgRating = rs.getDouble("avg_rating");
+//                     avgRating = rs.getDouble("avg_rating");
                 }
                 if (txtITitle.getText().isEmpty() == false){
                     title = txtITitle.getText();
@@ -67,7 +67,7 @@ public class UpdateBookController {
                 statement.setString(1, title);
                 statement.setInt(2, year);
                 statement.setInt(3, isbn);
-                statement.setDouble(4, avgRating);
+//                statement.setDouble(4, avgRating);
                 statement.execute();
                 System.out.println("Updated");
 

@@ -68,25 +68,28 @@ public class AddBookController {
     }
 
     public void addBook(ActionEvent actionEvent) throws SQLException {
-      //DbConnector connector = (DbConnector) getConnection();
+        //DbConnector connector = (DbConnector) getConnection();
         String title = txtTitle.getText();
         int bookYear = 0;
         String genre = txtGenre.getText();
-        double avgRating=0;
+        double avgRating = 0;
+        int genreid = 0;
+        int  authorId = 0;
+        int bookId = 0;
 
         try {
             bookYear = Integer.parseInt(txtPublishYear.getText());
             avgRating = Double.parseDouble(txtRating.getText());
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
         int bookIsbn = Integer.parseInt(txtISBN.getText());
 
         PreparedStatement state = null;
         //Connection connection =  getConnection();
-      //  checkBooks(state, conn, title);
+        //  checkBooks(state, conn, title);
 
-        if (txtTitle.getText().isEmpty() || txtTitle.getText().isEmpty()
+        if (txtGenre.getText().isEmpty() || txtTitle.getText().isEmpty()
                 || authorName.getText().isEmpty() || isbnList.contains(bookIsbn)
                 || bookTitleList.contains(title)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -97,24 +100,87 @@ public class AddBookController {
             bookTitleList.add(title);
             isbnList.add(bookIsbn);
             String sql = "INSERT INTO books " +
-                    "VALUES (NULL,?,?,?,NULL)";
+                    "VALUES (NULL,?,?,?,?)";
 
             String sql2 = "INSERT INTO Genre " +
                     "VALUES (NULL,?)";
 
+            String sql4 = "INSERT INTO authors " +
+                    "VALUES (NULL,?,?)";
+
+            String sql5 = "INSERT INTO books_authors " +
+                    "VALUES (?,?)";
+
+            String getAuthor = "SELECT * FROM Authors WHERE Name = '" + authorName.getText() + "'";
+
+            String getBook = "SELECT * FROM Books WHERE isbn = '" + bookIsbn + "'";
+
+
+            String cquery = "SELECT * FROM GENRE WHERE GenreType = '" + genre + "'";
+
+            ResultSet rs;
             Connection conn = getConnection();
 
-
             try {
+                /// Check if genre we want to add already exist
+                state = conn.prepareStatement(cquery);
+                rs = state.executeQuery(cquery);
+
+                if (!rs.isBeforeFirst()) {
+                    System.out.println("No data");
+
+
+                    /// Adding genre parameters in the database
+                    state = conn.prepareStatement(sql2);
+                    state.setString(1, genre);
+                    state.execute();
+                    /// Extraxcting genre id from database because it is needed for adding it into book record
+                    state = conn.prepareStatement(cquery);
+                    rs = state.executeQuery(cquery);
+
+                    while (rs.next()) {
+                        genreid = Integer.parseInt(rs.getString("GenreId"));
+                    }
+                }
+                while (rs.next()) {
+                    genreid = Integer.parseInt(rs.getString("GenreId"));
+                }
+
+                // Adding Book parameters in the database
                 state = conn.prepareStatement(sql);
                 state.setString(1, title);
                 state.setInt(2, bookYear);
                 state.setInt(3, bookIsbn);
+                state.setInt(4, genreid);
                 //state.setString(1, textField.getText());
                 state.execute();
-                state = conn.prepareStatement(sql2);
-                state.setString(1, genre);
+
+                /// Adding author for the book
+                state = conn.prepareStatement(getAuthor);
+                rs = state.executeQuery(getAuthor);
+                if (!rs.isBeforeFirst()) {
+                    System.out.println("No data");
+                    state = conn.prepareStatement(sql4);
+                    state.setString(1, authorName.getText());
+                    state.setString(2, txtAboutAuthor.getText());
+                    //state.setString(1, textField.getText());
+                    state.execute();
+                }
+                /// Adding Records to the third table and creating MANY TO MANY Relationship
+                while (rs.next()) {
+                    authorId = Integer.parseInt(rs.getString("authorId"));
+                }
+                state = conn.prepareStatement(getBook);
+                rs = state.executeQuery(getBook);
+                while (rs.next()) {
+                    bookId = Integer.parseInt(rs.getString("bookId"));
+                }
+                state = conn.prepareStatement(sql5);
+                state.setInt(1, bookId);
+                state.setInt(2, authorId);
                 state.execute();
+
+
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("Succesfully added");
@@ -132,15 +198,15 @@ public class AddBookController {
             }
         }
     }
+
     private void checkBooks(PreparedStatement stmt, Connection conn, String titile) throws SQLException {
         ResultSet title;
-        String cquery = "SELECT * FROM BOOKS WHERE TITLE = '"+titile+"'";
+        String cquery = "SELECT * FROM BOOKS WHERE TITLE = '" + titile + "'";
         conn = getConnection();
         ResultSet rs = stmt.executeQuery(cquery);
-        if (rs.next()){
+        if (rs.next()) {
             System.out.println("Succes");
-        }
-        else {
+        } else {
             System.out.println("Eror");
         }
 

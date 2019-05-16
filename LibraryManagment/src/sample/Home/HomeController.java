@@ -87,4 +87,16 @@ public class HomeController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void SearchinLib(ActionEvent actionEvent) {
+        try {
+            Parent blah = FXMLLoader.load(getClass().getClassLoader().getResource("sample/Search_In_Library/Search.fxml"));
+            Scene scene = new Scene(blah);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

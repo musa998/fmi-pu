@@ -10,11 +10,11 @@ public class Book {
     private SimpleIntegerProperty isbn;
     private SimpleDoubleProperty avRating;
 
-    public Book(String title, int year, int isbn, double avRating) {
+    public Book(String title, int year, int isbn) {
         this.title = new SimpleStringProperty(title);
         this.year = new SimpleIntegerProperty(year);
         this.isbn = new SimpleIntegerProperty(isbn);
-        this.avRating = new SimpleDoubleProperty(avRating);
+//        this.avRating = new SimpleDoubleProperty(avRating);
     }
 
     public String getTitle() {

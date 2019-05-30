@@ -7,34 +7,34 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.updateBook.UpdateBookController">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.updateBook.UpdateBookController">
    <children>
-      <TextField fx:id="txtSearchTitle" layoutX="260.0" layoutY="68.0" prefHeight="31.0" prefWidth="158.0" promptText="Book Title" />
-      <Label layoutX="194.0" layoutY="14.0" text="Update Book">
+      <Label layoutX="213.0" layoutY="14.0" text="Update Book">
          <font>
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="73.0" text="Enter book to update">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Pane layoutX="6.0" layoutY="121.0" prefHeight="271.0" prefWidth="590.0" styleClass="cssBookPane">
+      <Pane layoutX="-4.0" layoutY="115.0" prefHeight="271.0" prefWidth="590.0" styleClass="cssBookPane">
          <children>
-            <Label layoutX="335.0" layoutY="40.0" styleClass="cssLbl" text="ISBN :" />
-            <TextField fx:id="txtISBN" layoutX="438.0" layoutY="32.0" prefHeight="31.0" prefWidth="129.00002207031503" promptText="ISBN" styleClass="null" />
-            <Label layoutX="53.0" layoutY="76.0" prefWidth="103.99990844726562" styleClass="cssLbl" text="Year" />
-            <TextField fx:id="txtPublishYear" layoutX="143.0" layoutY="69.0" prefHeight="31.0" prefWidth="144.0" promptText="Publish Year" />
-            <Label layoutX="335.0" layoutY="76.0" styleClass="cssLbl" text="Average rating" />
-            <TextField fx:id="txtRating" layoutX="438.0" layoutY="70.0" prefHeight="31.0" prefWidth="129.0" promptText="Rating" />
-            <Label layoutX="53.0" layoutY="0.0" styleClass="cssLblHeader" text="Book Details" />
-            <TextField fx:id="txtITitle" layoutX="143.0" layoutY="33.0" prefHeight="31.0" prefWidth="144.0" promptText="Book Title" styleClass="null" />
-            <Label layoutX="53.0" layoutY="39.0" styleClass="cssLbl" text="Book Title" />
-            <TextField fx:id="txtAuthorName" layoutX="264.0" layoutY="147.0" prefHeight="31.0" prefWidth="312.0" promptText="Author Name" />
-            <Label layoutX="157.0" layoutY="152.0" styleClass="cssLbl" text="Author name" />
-            <Button fx:id="lblUpdate" layoutX="440.0" layoutY="208.0" mnemonicParsing="false" onAction="#editBook" prefHeight="31.000099999997474" prefWidth="76.0" styleClass="cssBtn" text="Update" />
+            <Label layoutX="344.0" layoutY="37.0" prefHeight="17.0" prefWidth="64.0" styleClass="cssLbl" text="Year">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+            <TextField fx:id="txtPublishYear" layoutX="401.0" layoutY="33.0" prefHeight="31.0" prefWidth="144.0" promptText="Publish Year" />
+            <TextField fx:id="txtITitle" layoutX="143.0" layoutY="33.0" prefHeight="31.0" prefWidth="144.0" promptText="Updated Book Title" styleClass="null" />
+            <Label layoutX="53.0" layoutY="39.0" styleClass="cssLbl" text="New Title">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Button fx:id="lblUpdate" layoutX="215.0" layoutY="183.0" mnemonicParsing="false" onAction="#editBook" prefHeight="31.0" prefWidth="129.0" styleClass="cssBtn" text="Update" />
+            <Button layoutX="413.0" layoutY="214.0" mnemonicParsing="false" onAction="#returnToHome" text="Back to Menu" />
          </children>
       </Pane>
+      <Label layoutX="101.0" layoutY="84.0" styleClass="cssLblHeader" text="Update Book by isbn">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSearchTitle" layoutX="268.0" layoutY="81.0" prefHeight="31.0" prefWidth="144.0" promptText="Book ISBN" styleClass="null" />
    </children>
 </AnchorPane>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addBook.AddController">
+   <children>
+      <Button layoutX="75.0" layoutY="83.0" mnemonicParsing="false" onAction="#addBook" prefHeight="79.0" prefWidth="117.0" text="Add Book" />
+      <Button layoutX="388.0" layoutY="83.0" mnemonicParsing="false" onAction="#AddGenre" prefHeight="79.0" prefWidth="117.0" text="Add Genre" />
+      <Button layoutX="231.0" layoutY="83.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="79.0" prefWidth="117.0" text="Add Author" />
+      <Button layoutX="245.0" layoutY="227.0" mnemonicParsing="false" onAction="#returnToHome" text="Back to Menu" />
+   </children>
+</AnchorPane>

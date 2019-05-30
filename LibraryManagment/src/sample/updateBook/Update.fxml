@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane fx:controller="sample.updateBook.UpdateController" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="64.0" layoutY="115.0" mnemonicParsing="false" onAction="#updateBook" prefHeight="92.0" prefWidth="122.0" text="Update Book" />
+      <Button layoutX="409.0" layoutY="115.0" mnemonicParsing="false" onAction="#updateGenre" prefHeight="92.0" prefWidth="122.0" text="Update Genre" />
+      <Button layoutX="239.0" layoutY="115.0" mnemonicParsing="false" onAction="#updateAuthor" prefHeight="92.0" prefWidth="122.0" text="Update Author" />
+      <Button layoutX="256.0" layoutY="285.0" mnemonicParsing="false" onAction="#returnToHome" text="Back to Menu" />
+   </children>
+</AnchorPane>

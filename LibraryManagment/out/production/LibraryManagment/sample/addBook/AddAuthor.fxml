@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addBook.AddAuthorController">
+   <children>
+      <Label layoutX="155.0" layoutY="51.0" text="Name" />
+      <TextField fx:id="txtAuthorName" layoutX="243.0" layoutY="47.0" promptText="Author Name" />
+      <TextArea fx:id="txtAboutAuthor" layoutX="98.0" layoutY="170.0" prefHeight="90.0" prefWidth="404.0" />
+      <Label layoutX="264.0" layoutY="133.0" text="About Author" />
+      <Button layoutX="226.0" layoutY="273.0" mnemonicParsing="false" onAction="#addAuthor" prefHeight="25.0" prefWidth="149.0" text="Add" />
+      <Button layoutX="392.0" layoutY="320.0" mnemonicParsing="false" onAction="#returnToHome" text="Back to Menu" />
+   </children>
+</AnchorPane>

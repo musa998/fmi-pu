@@ -2,16 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:controller="sample.Search_In_Library.SearchConroller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="174.0" prefWidth="598.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Search_In_Library.SearchConroller">
    <children>
       <Label layoutX="25.0" layoutY="68.0" prefHeight="27.0" prefWidth="134.0" text="Enter a keyword">
          <font>
@@ -23,53 +18,8 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField layoutX="196.0" layoutY="69.0" />
-      <TabPane layoutX="-4.0" layoutY="114.0" prefHeight="287.0" prefWidth="606.0" tabClosingPolicy="UNAVAILABLE">
-        <tabs>
-            <Tab text="Books">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="246.0" prefWidth="594.0">
-                     <children>
-                        <TableView layoutX="-2.0" layoutY="-5.0" prefHeight="255.0" prefWidth="606.0">
-                          <columns>
-                            <TableColumn prefWidth="293.0" text="Title" />
-                            <TableColumn prefWidth="120.0" text="Year" />
-                              <TableColumn prefWidth="172.0" text="Isbn" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="Authors">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="246.0" prefWidth="594.0">
-                     <children>
-                        <TableView layoutX="-2.0" layoutY="-5.0" prefHeight="255.0" prefWidth="606.0">
-                           <columns>
-                              <TableColumn prefWidth="217.0" text="Author Name" />
-                              <TableColumn prefWidth="386.0" text="About Author" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Genres">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="246.0" prefWidth="594.0">
-                     <children>
-                        <TableView layoutX="-2.0" layoutY="-5.0" prefHeight="255.0" prefWidth="606.0">
-                           <columns>
-                              <TableColumn prefWidth="594.0" text="Genre Type" />
-                           </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-               </content>
-            </Tab>
-        </tabs>
-      </TabPane>
       <Button fx:id="btnSearch" layoutX="409.0" layoutY="69.0" mnemonicParsing="false" onAction="#searchInLibrary" prefHeight="27.0" prefWidth="91.0" text="Search in library" />
+      <Button layoutX="3.0" layoutY="8.0" mnemonicParsing="false" onAction="#returnToHome" text="Back to Menu" />
+      <TextField fx:id="txtSearchTitle" layoutX="193.0" layoutY="66.0" prefHeight="31.0" prefWidth="158.0" />
    </children>
 </AnchorPane>

@@ -1,24 +1,37 @@
 package sample.addBook;
 
 import Connection.DbConnector;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import sample.Home.HomeController;
 
-import javax.swing.text.Document;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-import static Connection.DbConnector.conn;
 import static Connection.DbConnector.getConnection;
 
-public class AddBookController {
+public class AddBookController implements Initializable {
 
     public TextArea txtGenre;
+    public Pane rootPane;
+    public ComboBox genreComboBox;
+    public ComboBox authorComboBox;
     ArrayList<Integer> isbnList = new ArrayList<>();
     ArrayList<String> bookTitleList = new ArrayList<>();
     public TextField authorName;
@@ -29,49 +42,49 @@ public class AddBookController {
     public TextField txtISBN;
 
 
-    public void addAuthor(ActionEvent actionEvent) {
-        DbConnector connector = new DbConnector();
-        String authorsName = authorName.getText();
-        String aboutAuthor = txtAboutAuthor.getText();
-
-
-        if (authorsName.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Please Enter All the Fields ");
-            alert.showAndWait();
-        } else {
-
-            String sql = "INSERT INTO authors " +
-                    "VALUES (NULL,?,?)";
-            Connection conn = getConnection();
-            PreparedStatement state = null;
-
-            try {
-                state = conn.prepareStatement(sql);
-                state.setString(1, authorsName);
-                state.setString(2, aboutAuthor);
-                //state.setString(1, textField.getText());
-                state.execute();
-                //MyFrame.this.table.setModel(DBConnector.getAllModel());
-            } catch (SQLException var17) {
-                var17.printStackTrace();
-            } finally {
-                try {
-                    state.close();
-                    conn.close();
-                } catch (SQLException var16) {
-                    var16.printStackTrace();
-                }
-            }
-        }
-    }
+//    public void addAuthor(ActionEvent actionEvent) {
+//        DbConnector connector = new DbConnector();
+//        String authorsName = authorName.getText();
+//        String aboutAuthor = txtAboutAuthor.getText();
+//
+//
+//        if (authorsName.isEmpty()) {
+//            Alert alert = new Alert(Alert.AlertType.ERROR);
+//            alert.setHeaderText(null);
+//            alert.setContentText("Please Enter All the Fields ");
+//            alert.showAndWait();
+//        } else {
+//
+//            String sql = "INSERT INTO authors " +
+//                    "VALUES (NULL,?,?)";
+//            Connection conn = getConnection();
+//            PreparedStatement state = null;
+//
+//            try {
+//                state = conn.prepareStatement(sql);
+//                state.setString(1, authorsName);
+//                state.setString(2, aboutAuthor);
+//                //state.setString(1, textField.getText());
+//                state.execute();
+//                //MyFrame.this.table.setModel(DBConnector.getAllModel());
+//            } catch (SQLException var17) {
+//                var17.printStackTrace();
+//            } finally {
+//                try {
+//                    state.close();
+//                    conn.close();
+//                } catch (SQLException var16) {
+//                    var16.printStackTrace();
+//                }
+//            }
+//        }
+//    }
 
     public void addBook(ActionEvent actionEvent) throws SQLException {
         //DbConnector connector = (DbConnector) getConnection();
         String title = txtTitle.getText();
         int bookYear = 0;
-        String genre = txtGenre.getText();
+//        String genre = txtGenre.getText();
         double avgRating = 0;
         int genreid = 0;
         int  authorId = 0;
@@ -89,8 +102,10 @@ public class AddBookController {
         //Connection connection =  getConnection();
         //  checkBooks(state, conn, title);
 
-        if (txtGenre.getText().isEmpty() || txtTitle.getText().isEmpty()
-                || authorName.getText().isEmpty() || isbnList.contains(bookIsbn)
+        if (txtTitle.getText().isEmpty()
+                || authorComboBox.getSelectionModel().getSelectedItem().equals(null)
+                || genreComboBox.getSelectionModel().getSelectedItem().equals(null)
+                || isbnList.contains(bookIsbn)
                 || bookTitleList.contains(title)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText(null);
@@ -111,29 +126,41 @@ public class AddBookController {
             String sql5 = "INSERT INTO books_authors " +
                     "VALUES (?,?)";
 
-            String getAuthor = "SELECT * FROM Authors WHERE Name = '" + authorName.getText() + "'";
+            String getAuthor = "SELECT * FROM Authors WHERE Name = '" + authorComboBox.getSelectionModel().getSelectedItem() + "'";
 
             String getBook = "SELECT * FROM Books WHERE isbn = '" + bookIsbn + "'";
 
+            String getBook2 = "SELECT * FROM Books WHERE title = '" + title + "'";
 
-            String cquery = "SELECT * FROM GENRE WHERE GenreType = '" + genre + "'";
+            System.out.println(genreComboBox.getSelectionModel());
+
+            String cquery = "SELECT * FROM GENRE WHERE GenreType = '" + genreComboBox.getSelectionModel().getSelectedItem() + "'";
 
             ResultSet rs;
             Connection conn = getConnection();
 
             try {
                 /// Check if genre we want to add already exist
+                state = conn.prepareStatement(getBook2);
+                rs = state.executeQuery(getBook2);
+                if (rs.isBeforeFirst()) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setHeaderText(null);
+                    alert.setContentText("This Author already exist");
+                    alert.showAndWait();
+                    return;
+                }
+
                 state = conn.prepareStatement(cquery);
                 rs = state.executeQuery(cquery);
 
                 if (!rs.isBeforeFirst()) {
                     System.out.println("No data");
 
-
                     /// Adding genre parameters in the database
-                    state = conn.prepareStatement(sql2);
-                    state.setString(1, genre);
-                    state.execute();
+//                    state = conn.prepareStatement(sql2);
+////                    state.setString(1, genre);
+//                    state.execute();
                     /// Extraxcting genre id from database because it is needed for adding it into book record
                     state = conn.prepareStatement(cquery);
                     rs = state.executeQuery(cquery);
@@ -166,6 +193,8 @@ public class AddBookController {
                     //state.setString(1, textField.getText());
                     state.execute();
                 }
+                state = conn.prepareStatement(getAuthor);
+                rs = state.executeQuery(getAuthor);
                 /// Adding Records to the third table and creating MANY TO MANY Relationship
                 while (rs.next()) {
                     authorId = Integer.parseInt(rs.getString("authorId"));
@@ -185,6 +214,8 @@ public class AddBookController {
                 alert.setHeaderText(null);
                 alert.setContentText("Succesfully added");
                 alert.showAndWait();
+
+
                 //MyFrame.this.table.setModel(DBConnector.getAllModel());
             } catch (SQLException var17) {
                 var17.printStackTrace();
@@ -192,6 +223,8 @@ public class AddBookController {
                 try {
                     state.close();
                     conn.close();
+//                    HomeController homeController = new HomeController();
+//                    homeController.viewBooksData();
                 } catch (SQLException var16) {
                     var16.printStackTrace();
                 }
@@ -210,15 +243,44 @@ public class AddBookController {
             System.out.println("Eror");
         }
 
-//        try {
-//            while(title.next())
-//            {
-//                String title1 = title.getString("title");
-//                System.out.println(title1);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+    }
 
+    public void returnToHome(ActionEvent actionEvent) throws IOException {
+        Parent blah = FXMLLoader.load(getClass().getClassLoader().getResource("sample/addBook/Add.fxml"));
+        rootPane.getChildren().setAll(blah);
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        ResultSet rs;
+        PreparedStatement statement = null;
+        Connection connection = getConnection();
+        ObservableList<String> authorOptions =  FXCollections.observableArrayList();
+        ObservableList<String> genreOptions =  FXCollections.observableArrayList();
+
+        String authorQuery  = "SELECT NAME FROM Authors";
+        String genreQuery  = "SELECT GenreType FROM Genre";
+
+        try {
+            statement = connection.prepareStatement(authorQuery);
+            rs = statement.executeQuery(authorQuery);
+            while (rs.next()){
+                authorOptions.add(rs.getString("name"));
+            }
+            statement = connection.prepareStatement(genreQuery);
+            rs = statement.executeQuery(genreQuery);
+            while (rs.next()){
+                genreOptions.add(rs.getString("GenreType"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        authorComboBox.setItems(authorOptions);
+        authorComboBox.getSelectionModel().selectFirst();
+        genreComboBox.setItems(genreOptions);
+        genreComboBox.getSelectionModel().selectFirst();
+//        System.out.println(authorComboBox.getSelectionModel().isSelected(0));
+//        System.out.println(authorComboBox.getSelectionModel().getSelectedIndex());
+        System.out.println(authorComboBox.getSelectionModel().getSelectedItem());
     }
 }

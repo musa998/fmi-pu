@@ -26,12 +26,14 @@ public abstract class BaseSearch {
 
     protected void printPath3(Room current, int from, String pathExcept) {
         String res = "Path is: ";
+        System.out.println("Path found");
+
         int costs = 0;
         ArrayList<Integer> list = new ArrayList<>();
         ArrayList<Link> links = new ArrayList<>();
         ArrayList<Integer> allCurrentElements = new ArrayList<>();
         boolean partFromPath = false;
-        checkLastLink(current, from, links);
+        checkLastLinkExcept(current, from, links, pathExcept);
         while (current.depth != 0) {
             list.add(current.number);
             allCurrentElements.add(current.number);
@@ -51,7 +53,8 @@ public abstract class BaseSearch {
                     } else {
 //                        partFromPath = false;
                         for (Link link1 : current.links) {
-                            if (link1.to.depth != -1 && link1.to.depth > current.depth){
+                            if (link1.to.depth != -1 && link1.to.depth > current.depth
+                                    && !allCurrentElements.contains(link.to.number)){
                                 linkToAdd = link1;
                                 links.add(link1);
                                 current = link1.to;
@@ -77,7 +80,7 @@ public abstract class BaseSearch {
                 }
 
             }
-            checkLastLink(current, from, links);
+            checkLastLinkExcept(current, from, links, pathExcept);
         }
         list.add(current.number);
         String ress = "Path - ";
@@ -94,6 +97,8 @@ public abstract class BaseSearch {
 
     protected void printPath2(Room current, int from) {
         String res = "Path is: ";
+        System.out.println("Path found");
+
         int costs = 0;
         ArrayList<Integer> list = new ArrayList<>();
         ArrayList<Link> links = new ArrayList<>();
@@ -149,6 +154,30 @@ public abstract class BaseSearch {
                     if (link.to.number == from && link.transition.equals("lift")) {
                         links.add(link);
                     }
+                    else if (link.to.number == from && link.transition.equals("climb")){
+                        link.distance *= 2;
+                        links.add(link);
+                    }
+                } else if (link.to.number == from) {
+                    if (link.to.number == from && link.transition.equals("lift")) {
+                        links.add(link);
+                    }
+                    else if (link.to.number == from && link.transition.equals("climb")){
+                        link.distance *= 2;
+                        links.add(link);
+                    }
+                }
+            });
+        }
+    }
+    private void checkLastLinkExcept(Room current, int from, ArrayList<Link> links, String pathExcept) {
+        if (current.depth == 0) {
+            Room finalCurrent = current;
+            current.links.stream().forEach(link -> {
+                if (hasDuplicates(finalCurrent.links, from)) {
+                    if (link.to.number == from && !link.transition.equals(pathExcept)) {
+                        links.add(link);
+                    }
                 } else if (link.to.number == from) {
                     links.add(link);
                 }
@@ -169,32 +198,40 @@ public abstract class BaseSearch {
         return false;
     }
 
+
     protected void printPath(Room current) {
 //        StringBuilder sb = new StringBuilder();
+        System.out.println("Path found");
         int costs = 0;
         ArrayList<Integer> list = new ArrayList<>();
         ArrayList<Link> links = new ArrayList<>();
+        ArrayList<Integer> allCurrentElements = new ArrayList<>();
         boolean currentIncreased = false;
-
+        boolean checkBidirectional = false;
+        allCurrentElements.add(current.number);
 
         while (current.depth != 0) {
 //                sb.append(current.number);
 //                sb.append(",");
             list.add(current.number);
+            allCurrentElements.add(current.number);
             for (Link link : current.links) {
-
-                if (link.to.roomType.equals("room") && link.to.floorNumber != current.floorNumber
-                        && currentIncreased == false) {
-                    current.depth++;
-                    continue;
-                }
-
-                if (link.to.depth == current.depth - 1) {
-
+                if (link.to.depth == current.depth - 1
+                        && !allCurrentElements.contains(link.to.number)) {
+                    checkBidirectional = true;
                     links.add(link);
                     current = link.to;
+                    allCurrentElements.add(link.to.number);
                     currentIncreased = true;
                     break;
+                }
+            }
+            if (!checkBidirectional){
+                for (Link link : current.links) {
+                    links.add(link);
+                    current = link.to;
+                    allCurrentElements.add(link.to.number);
+                    currentIncreased = true;
                 }
             }
         }

@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import entityes.Author;
 import entityes.Book;
+import entityes.Book_Genre;
 import entityes.Genre;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -41,6 +42,12 @@ public class HomeController implements Initializable {
     public TextField searchText;
     public TextField searchText2;
     public Tab genreTab;
+    public TableView<Book_Genre> Book_Genre_TableView;
+    //// Book_genre colums
+    public TableColumn colTitle2;
+    public TableColumn colYear2;
+    public TableColumn colIsbn;
+    public TableColumn colGenreType;
 
     @FXML
     private Button btnCheckOutBook;
@@ -209,8 +216,40 @@ public class HomeController implements Initializable {
     }
 
     public void search(ActionEvent actionEvent) {
-        if (searchText.getText().isEmpty() && searchText2.getText().isEmpty()) {
+        if (!searchText.getText().isEmpty() && !searchText2.getText().isEmpty()) {
+            String selectBooks = "select title, year, isbn, GenreType\n" +
+                    "from books join genre \n" +
+                    "on books.GenreId = genre.GenreId\n" +
+                    "where books.title = '" + searchText.getText() + "' and genre.GenreType = '" + searchText2.getText() + "'";
+            ResultSet rs;
+            PreparedStatement statement = null;
+            Connection connection = getConnection();
+            try {
+                statement = connection.prepareStatement(selectBooks);
+                rs = statement.executeQuery(selectBooks);
+                if (!rs.isBeforeFirst()) {
+                    System.out.println("No data");
+                }
+                while (rs.next()) {
+                    String title = rs.getString("title");
+                    int year = rs.getInt("year");
+                    int isbn = rs.getInt("isbn");
+                    String genreType = rs.getString("GenreType");
+//                double avgRating = rs.getDouble("avg_rating");
+                    Book_Genre book_genre = new Book_Genre(title, year, isbn, genreType);
+                    // ObservableList<Book> books = FXCollections.observableArrayList();
+                    Book_Genre_TableView.getItems().clear();
+                    Book_Genre_TableView.getItems().add(book_genre);
+                    colTitle2.setCellValueFactory(new PropertyValueFactory<>("Title"));
+                    colYear2.setCellValueFactory(new PropertyValueFactory<>("Year"));
+                    colIsbn.setCellValueFactory(new PropertyValueFactory<>("Isbn"));
+                    colGenreType.setCellValueFactory(new PropertyValueFactory<>("GenreType"));
 
+                }
+                System.out.println("exited");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         } else if (searchText.getText().equals("") == false) {
             String selectBooks = "Select * from books where title like'%" + searchText.getText() + "%'"
                     + "Union Select * from books where year like'%" + searchText.getText() + "%'"

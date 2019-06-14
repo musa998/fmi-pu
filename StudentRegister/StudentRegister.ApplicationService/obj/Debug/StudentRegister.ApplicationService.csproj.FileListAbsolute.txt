@@ -1,0 +1,11 @@
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\obj\Debug\StudentRegister.ApplicationService.csprojResolveAssemblyReference.cache
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\obj\Debug\StudentRegister.ApplicationService.csproj.CoreCompileInputs.cache
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\bin\Debug\StudentRegister.ApplicationService.dll
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\bin\Debug\StudentRegister.ApplicationService.pdb
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\bin\Debug\StudentRegister.Data.dll
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\bin\Debug\EntityFramework.dll
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\bin\Debug\StudentRegister.Data.pdb
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\bin\Debug\StudentRegister.Data.dll.config
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\bin\Debug\EntityFramework.xml
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\obj\Debug\StudentRegister.ApplicationService.dll
+C:\Users\#Probook#\source\repos\StudentRegister.Data\StudentRegister.ApplicationService\obj\Debug\StudentRegister.ApplicationService.pdb

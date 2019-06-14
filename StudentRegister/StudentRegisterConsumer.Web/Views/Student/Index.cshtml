@@ -1,0 +1,19 @@
+﻿    @model  List<StudentRegisterConsumer.Web.Models.StudentViewModel>
+
+@{
+    ViewBag.Title = "StudentIndex";
+}
+
+<h2>StudentIndex</h2>
+<ol>
+    @foreach (var item in Model)
+    {
+        <li>@string.Format("{0} - {1} - {2} - {3}", item.FirstName, item.LastName, item.Comment, item.DateOfBirth)</li>
+    }
+</ol>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

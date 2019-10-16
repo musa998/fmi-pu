@@ -23,13 +23,13 @@ public class Main {
         GoldCard goldCard1 = new GoldCard(pesho, 1500);
         Card goldCard2 = new GoldCard(gosho, 0);
 
-        // base case 1
+        //case 1
         //System.out.println(PayDesk.manageOrder(bronzeCard1, 150));
 
-        // base case 2
+        //case 2
         //System.out.println(PayDesk.manageOrder(silverCard1, 850));
 
-        // base case 3
+        //case 3
         //System.out.println(PayDesk.manageOrder(goldCard1, 1300));
 
         // other cases

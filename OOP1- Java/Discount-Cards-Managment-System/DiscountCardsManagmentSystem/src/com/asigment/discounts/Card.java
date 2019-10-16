@@ -1,5 +1,6 @@
 package com.asigment.discounts;
 
+/*Abstract  class that contains all main properties for one card*/
 public abstract class Card {
 
     private Owner owner;
@@ -15,7 +16,7 @@ public abstract class Card {
     public double calculateDiscount(double purchaseValue) {
         return (purchaseValue * this.getRealDiscountRate()) / 100;
     }
-
+    /*Needs to be overriden because there are a different types of cards with different "Discount rate" */
     public abstract double getRealDiscountRate ();
 
 

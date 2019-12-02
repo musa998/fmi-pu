@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingRight="@dimen/activity_margin"
+    android:paddingTop="@dimen/activity_margin">
+
+    <TextView android:id="@+id/dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen_10"
+        android:fontFamily="sans-serif-medium"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/lbl_new_message_title"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/lbl_new_contact_title"
+        android:textStyle="normal" />
+
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="371dp"
+        android:layout_height="43dp"
+        android:background="@android:color/transparent"
+        android:gravity="top"
+        android:hint="@string/hint_enter_phone"
+        android:inputType="textCapSentences|textMultiLine"
+        android:lines="4"
+        android:textColorHint="@color/hint_enter_note"
+        android:textSize="@dimen/input_new_contact" />
+
+    <RelativeLayout
+        android:layout_width="376dp"
+        android:layout_height="355dp">
+
+        <EditText
+            android:id="@+id/messageContent"
+            android:layout_width="match_parent"
+            android:layout_height="379dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="58dp"
+            android:layout_marginBottom="179dp"
+            android:background="@android:color/transparent"
+            android:gravity="top"
+            android:hint="@string/hint_enter_message"
+            android:inputType="textCapSentences|textMultiLine"
+            android:lines="4"
+            android:textColorHint="@color/hint_enter_note"
+            android:textSize="@dimen/input_new_contact" />
+    </RelativeLayout>
+
+</LinearLayout>

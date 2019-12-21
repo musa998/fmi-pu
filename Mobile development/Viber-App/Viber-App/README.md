@@ -1,4 +1,4 @@
 Android Viber App** demonstrating **SQLite** database.
 
-[Tutorial]
-![Alt text](images/img1.jpg)
+
+![Screenshot](img1.png)

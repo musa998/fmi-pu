@@ -5,12 +5,12 @@ import java.util.*;
 /**
  * 
  */
-public class Category {
+public class Speaker {
 
     /**
      * Default constructor
      */
-    public Category() {
+    public Speaker() {
     }
 
     /**
@@ -21,7 +21,14 @@ public class Category {
     /**
      * 
      */
-    private String description;
+    private Integer age;
+
+    /**
+     * 
+     */
+    private String genre;
+
+
 
     /**
      * 
@@ -29,20 +36,9 @@ public class Category {
     public Set<Event> event;
 
     /**
-     * 
-     */
-    public Set<Category> children;
-
-    /**
-     * 
-     */
-    public Category parent;
-
-    /**
      * @return
      */
     public String getName() {
-        // TODO implement here
         return this.name;
     }
 
@@ -50,22 +46,35 @@ public class Category {
      * @param value
      */
     public void setName(String value) {
-       this.name = value;
+        this.name = value;
     }
 
     /**
      * @return
      */
-    public String getDescription() {
-        // TODO implement here
-        return this.description;
+    public Integer getAge() {
+        return this.age;
     }
 
     /**
      * @param value
      */
-    public void setDecription(String value) {
-        this.description = value;
+    public void setAge(Integer value) {
+        this.age = value;
+    }
+
+    /**
+     * @return
+     */
+    public String getGenre() {
+        return this.genre;
+    }
+
+    /**
+     * @param value
+     */
+    public void setGenre(String value) {
+       this.genre = value;
     }
 
 }
